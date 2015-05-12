@@ -1,0 +1,8 @@
+2015-05-11 16:56:38.759 yletilanne[36276:2860571] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jayjay/Library/Developer/CoreSimulator/Devices/0F763F2D-8148-4C0C-89C0-230AE0210B46/data/Containers/Data/Application/F5F73F7C-31A5-409A-9267-C7AE7B86024D/Library/Cookies/Cookies.binarycookies
+2015-05-11 16:56:38.872 yletilanne[36276:2860571] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-11 16:56:38.872 yletilanne[36276:2860571] Multi-tasking -> Device: YES, App: YES
+2015-05-11 16:56:38.879 yletilanne[36276:2860571] Unlimited access to network resources
+2015-05-11 16:56:38.969 yletilanne[36276:2860571] [CDVTimer][keyboard] 0.060022ms
+2015-05-11 16:56:38.969 yletilanne[36276:2860571] [CDVTimer][TotalPluginStartup] 0.259995ms
+2015-05-11 16:56:39.186 yletilanne[36276:2860571] Resetting plugins due to page load.
+2015-05-11 16:56:39.347 yletilanne[36276:2860571] Finished load of: file:///Users/jayjay/Library/Developer/CoreSimulator/Devices/0F763F2D-8148-4C0C-89C0-230AE0210B46/data/Containers/Bundle/Application/B4C385B1-D384-4E84-B203-7501A994F3EF/yletilanne.app/www/index.html#/tab/dash

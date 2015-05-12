@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-nav-title class="tab-title">
+    <a href="#/home" nav-clear><img src="img/ylelogo.png" /></a>
+    <span>Tilannevahti: Kerro tilanteesi</span>
+  </ion-nav-title>
+    <ion-content>
+    <form ng-submit="addEvent(evt)">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">Tilannetyyppi</div>
+          <select ng-model="evt.evttype">
+            <option ng-repeat="type in types">{{type.label}}</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Otsikko" ng-model="evt.title">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Lisätiedot" ng-model="evt.description">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Lähetä</button>
+      </div>
+      <input type="hidden" ng-model="evt.lat">
+      <input type="hidden" ng-model="evt.lng">
+    </form>
+    <div id="map-add" data-tap-disabled="true"></div>
+  </ion-content>
+</ion-view>

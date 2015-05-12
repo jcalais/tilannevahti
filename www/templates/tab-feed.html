@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-nav-title class="tab-title">
+    <a href="#/home" nav-clear><img src="img/ylelogo.png" /></a>
+    <span>Tilannevahti: Feedi</span>
+  </ion-nav-title>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right item-icon-left" ng-repeat="evt in events" type="item-text-wrap" href="#/tab/feed/{{evt.id}}">
+        <i class="icon {{evt.icon}}"></i>
+        <h2><time class="yle-time">{{evt.time | date:"d.M klo h:mm"}}</time> - {{evt.title}}</h2>
+        <p>{{evt.description}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-positive" ng-click="remove(evt)">
+          piilota
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
