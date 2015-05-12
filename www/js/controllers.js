@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
 
+.controller('AppCtrl', function($scope, Events) {
+  $scope.types = Events.getTypes();
+})
+
 .controller('MapCtrl', function($scope, $ionicLoading, $compile, Events) {
   var events = Events.getByType();
 
