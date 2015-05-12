@@ -23,8 +23,7 @@ angular.module('starter.controllers', [])
       position: pos,
       map: map,
       title: events[i].title,
-      html: compiledHtml[0],
-      icon: events[i].title
+      html: compiledHtml[0]
     }));
 
     google.maps.event.addListener(markers[markers.length-1], 'click', function() {
