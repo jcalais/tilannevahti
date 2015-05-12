@@ -36,3 +36,10 @@ h2.map-infowindow a {
   color: #0fa1c8;
   text-decoration: none;
 }
+
+h3.side-menu-header {
+  text-align: center;
+  color: #0fa1c8;
+  font-size: 1.2em;
+  margin-top: 1em;
+}

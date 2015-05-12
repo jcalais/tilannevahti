@@ -128,31 +128,38 @@ angular.module('starter.services', [])
   var sourcelist = [
     {
       label: "Käyttäjä", 
-      icon: "ion-person"
+      icon: "ion-person",
+      enabled: 1
     },
     {
       label: "Pelastuslaitos", 
-      icon: "ion-medkit"
+      icon: "ion-medkit",
+      enabled: 1
     },
     {
       label: "Poliisi",
-      icon: "ion-speakerphone"
+      icon: "ion-speakerphone",
+      enabled: 1
     },
     {
       label: "Sähkölaitos",
-      icon: "ion-outlet"
+      icon: "ion-outlet",
+      enabled: 1
     },
     {
       label: "Vesilaitos",
-      icon: "ion-waterdrop"
+      icon: "ion-waterdrop",
+      enabled: 1
     },
     {
       label: "Puolustusvoimat",
-      icon: "ion-flash"
+      icon: "ion-flash",
+      enabled: 1
     },
     {
       label: "Säteilyturvakeskus",
-      icon: "ion-nuclear"
+      icon: "ion-nuclear",
+      enabled: 1
     }
   ];
 
@@ -160,27 +167,33 @@ angular.module('starter.services', [])
   var typelist = [
     {
       label: "Vesi", 
-      icon: "ion-waterdrop"
+      icon: "ion-waterdrop",
+      enabled: 1
     },
     {
       label: "Sähkö", 
-      icon: "ion-outlet"
+      icon: "ion-outlet",
+      enabled: 1
     },
     {
       label: "Liikenne",
-      icon: "ion-android-car"
+      icon: "ion-android-car",
+      enabled: 1
     },
     {
       label: "Sää",
-      icon: "ion-ios-partlysunny-outline"
+      icon: "ion-ios-partlysunny-outline",
+      enabled: 1
     },
     {
       label: "Säteily",
-      icon: "ion-nuclear"
+      icon: "ion-nuclear",
+      enabled: 1
     },
     {
       label: "Rikos",
-      icon: "ion-speakerphone"
+      icon: "ion-speakerphone",
+      enabled: 1
     }
   ];
 
@@ -226,10 +239,14 @@ angular.module('starter.services', [])
     // Return events by type.
     getByType: function(type) {
       var ret = [];
+      var activetypes = [];
+      
       for (var i=0 ; i<events.length ; i++) {
-        if (events[i].type == type || !type) {
-          events[i].icon = getIconForType(events[i].type);
-          ret.push(events[i]);  
+        for (var j=0 ; j<typelist.length ; j++) {
+          if (typelist[j].enabled && events[i].type == typelist[j].label) {
+            events[i].icon = getIconForType(events[i].type);
+            ret.push(events[i]);  
+          }
         }
       }
       return ret;
@@ -264,6 +281,22 @@ angular.module('starter.services', [])
         time: newEvtTime,
         id: newId
       });
+    },
+
+    toggleType: function(type) {
+      for (var i=0 ; i<typelist.length; i++) {
+        if (typelist[i].label == type.label) {
+          typelist[i].enabled = typelist[i].enabled == 1 ? 0 : 1;
+        }
+      }
+    },
+
+    toggleSource: function(source) {
+      for (var i=0 ; i<sourcelist.length; i++) {
+        if (sourcelist[i].label == source.label) {
+          sourcelist[i].enabled = sourcelist[i].enabled == 1 ? 0 : 1;
+        }
+      }
     }
   }
 })

@@ -32,12 +32,6 @@ navigation history that also transitions its views in and out.
         <ion-nav-view name="tab-add"></ion-nav-view>
       </ion-tab>
 
-      <!-- Account Tab -->
-      <ion-tab title="Asetukset" icon-off="ion-gear-a" icon-on="ion-gear-a" href="#/tab/chats">
-        <ion-nav-view name="tab-chats"></ion-nav-view>
-      </ion-tab>
-
-
     </ion-tabs>
 
   </ion-side-menu-content>
@@ -47,8 +41,13 @@ navigation history that also transitions its views in and out.
       <h1 class="title"><i class="icon ion-gear-a"></i> Asetukset</h1>
     </ion-header-bar>
     <ion-content>
+      <h3 class="side-menu-header">Lähteet</h3>
       <ion-list>
-        <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm" ng-repeat="type in types">{{ type.label}}</ion-toggle>
+        <ion-toggle toggle-class="toggle-calm" ng-repeat="source in sources" ng-model="selectedSource" ng-click="toggleSource(source)" ng-checked="source.enabled">{{source.label}}</ion-toggle>
+      </ion-list>
+      <h3 class="side-menu-header">Tilannetyypit</h3>
+      <ion-list>
+        <ion-toggle toggle-class="toggle-calm" ng-repeat="type in types" ng-model="selectedType" ng-click="toggleType(type)" ng-checked="type.enabled">{{type.label}}</ion-toggle>
       </ion-list>
     </ion-content>
   </ion-side-menu>

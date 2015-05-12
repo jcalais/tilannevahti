@@ -1,7 +1,16 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, Events) {
+.controller('AppCtrl', function($scope, $state, Events) {
   $scope.types = Events.getTypes();
+  $scope.sources = Events.getSources();
+  $scope.toggleType = function(type) {
+    Events.toggleType(type);
+    $state.go($state.current, {}, {reload: true});
+  }
+  $scope.toggleSource = function(type) {
+    Events.toggleSource(type);
+    $state.go($state.current, {}, {reload: true});
+  }
 })
 
 .controller('MapCtrl', function($scope, $ionicLoading, $compile, Events) {
@@ -38,14 +47,13 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.beforeEnter', function() {
     $scope.events = Events.getByType();
-
   });
 })
 
 .controller('FeedCtrl', function($scope, Events) {
-  $scope.events = Events.getBySource();
+  $scope.events = Events.getByType();
   $scope.$on('$ionicView.beforeEnter', function() {
-    $scope.events = Events.getBySource();
+    $scope.events = Events.getByType();
   });
 })
 
@@ -96,21 +104,4 @@ angular.module('starter.controllers', [])
     newEvt.description = "";
     newEvt.type = "";
   }
-})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
 });
