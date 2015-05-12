@@ -121,6 +121,46 @@ angular.module('starter.services', [])
       lng: 21.435772,
       description: "Voimalan alueella on mitattu kohonneita säteilytasoja. Asiaa tutkitaan parhaillaan.",
       id: 12
+    },
+    {
+      source: "Käyttäjä",
+      type: "Rikos",
+      title: "Outo tyyppi",
+      time: "2015-05-01T21:53",
+      lat: 60.6318105,
+      lng: 24.8578826,
+      description: "Yritti päästä asuntoomme sisään,",
+      id: 13
+    },
+    {
+      source: "Käyttäjä",
+      type: "Rikos",
+      title: "Joku pummi",
+      time: "2015-05-01T21:53",
+      lat: 60.6329105,
+      lng: 24.8578826,
+      description: "Yritti päästä asuntoomme sisään,",
+      id: 14
+    },
+    {
+      source: "Käyttäjä",
+      type: "Rikos",
+      title: "Joku kävi päälle",
+      time: "2015-05-01T21:53",
+      lat: 60.6318105,
+      lng: 24.8567826,
+      description: "Yritti päästä asuntoomme sisään,",
+      id: 15
+    },
+    {
+      source: "Käyttäjä",
+      type: "Rikos",
+      title: "Kaveri naama verillä",
+      time: "2015-05-01T21:53",
+      lat: 60.6337105,
+      lng: 24.8556826,
+      description: "Yritti päästä asuntoomme sisään,",
+      id: 16
     }
   ];
 
