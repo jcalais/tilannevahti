@@ -3,15 +3,17 @@ angular.module('starter.services', [])
 .factory('Events', function() {
   var events = [
     {
+      source: "Vesilaitos",
       type: "Vesi",
       title: "Vesi poikki",
       time: "2015-05-01T11:35",
       lat: 60.1733244,
       lng: 24.9410248,
-      description: "Vesi ollut ainakin 3.5 tuntia kokonaan poissa käytöstä",
+      description: "Veden saanti on poikki alueella. Arvioitu korjausaika 8 tuntia.",
       id: 1
     },
     {
+      source: "Pelastuslaitos",
       type: "Liikenne",
       title: "Tankkiauto palaa",
       time: "2015-05-02T12:03",
@@ -21,6 +23,7 @@ angular.module('starter.services', [])
       id: 2
     },
     {
+      source: "Käyttäjä",
       type: "Vesi",
       title: "Vedensaanti tökkii",
       time: "2015-05-01T11:49",
@@ -30,15 +33,17 @@ angular.module('starter.services', [])
       id: 3
     },
     {
+      source: "Sähkölaitos",
       type: "Sähkö",
-      title: "Sähköt poikki Siuntiossa",
+      title: "Sähköt poikki Siuntion alueella",
       time: "2015-05-01T13:22",
       lat: 60.2117239,
       lng: 24.7288783,
-      description: "Mikään ei toimi!",
+      description: "Suurin osa talouksista pyritään saamaan palautettua valtakunnan verkkoon klo 15:30 mennessä.",
       id: 4
     },
     {
+      source: "Käyttäjä",
       type: "Vesi",
       title: "Vesi katkeilee",
       time: "2015-05-01T11:42",
@@ -48,6 +53,7 @@ angular.module('starter.services', [])
       id: 5
     },
     {
+      source: "Käyttäjä",
       type: "Sähkö",
       title: "Sähköt tulee ja menee",
       time: "2015-05-01T17:17",
@@ -57,6 +63,7 @@ angular.module('starter.services', [])
       id: 6
     },
     {
+      source: "Käyttäjä",
       type: "Liikenne",
       title: "Helikopteri tippunut tuusulantielle",
       time: "2015-05-02T11:44",
@@ -66,6 +73,7 @@ angular.module('starter.services', [])
       id: 7
     },
     {
+      source: "Puolustusvoimat",
       type: "Liikenne",
       title: "Panssarivaunun rengasrikko",
       time: "2015-05-02T13:39",
@@ -75,6 +83,7 @@ angular.module('starter.services', [])
       id: 8
     },
     {
+      source: "Käyttäjä",
       type: "Sähkö",
       title: "Ingen elektricitet!",
       time: "2015-05-01T19:23",
@@ -82,6 +91,68 @@ angular.module('starter.services', [])
       lng: 24.7728925,
       description: "Vi har ringt elverket för tre timmar sen, men ingen el ännu.",
       id: 9
+    },
+    {
+      source: "Poliisi",
+      type: "Rikos",
+      title: "Vanki karannut Jokelan vankilasta",
+      time: "2015-05-01T20:23",
+      lat: 60.552881,
+      lng: 24.976039,
+      description: "Vaarallinen vanki on karannut Jokelan vankilasta klo 20:15. Viimeinen havainto kiipeämässä muurin yli.",
+      id: 10
+    },
+    {
+      source: "Käyttäjä",
+      type: "Rikos",
+      title: "Vankikarkuri bongattu",
+      time: "2015-05-01T20:53",
+      lat: 60.4384937,
+      lng: 24.8728925,
+      description: "Samannäköinen kaveri yritti liftata kyytiin.",
+      id: 11
+    },
+    {
+      source: "Säteilyturvakeskus",
+      type: "Säteily",
+      title: "Kohonnut säteilytaso",
+      time: "2015-05-01T21:53",
+      lat: 61.235036,
+      lng: 21.435772,
+      description: "Voimalan alueella on mitattu kohonneita säteilytasoja. Asiaa tutkitaan parhaillaan.",
+      id: 12
+    }
+  ];
+
+  // Define all sources and their icons.
+  var sourcelist = [
+    {
+      label: "Käyttäjä", 
+      icon: "ion-person"
+    },
+    {
+      label: "Pelastuslaitos", 
+      icon: "ion-medkit"
+    },
+    {
+      label: "Poliisi",
+      icon: "ion-speakerphone"
+    },
+    {
+      label: "Sähkölaitos",
+      icon: "ion-outlet"
+    },
+    {
+      label: "Vesilaitos",
+      icon: "ion-waterdrop"
+    },
+    {
+      label: "Puolustusvoimat",
+      icon: "ion-flash"
+    },
+    {
+      label: "Säteilyturvakeskus",
+      icon: "ion-nuclear"
     }
   ];
 
@@ -102,8 +173,24 @@ angular.module('starter.services', [])
     {
       label: "Sää",
       icon: "ion-ios-partlysunny-outline"
+    },
+    {
+      label: "Säteily",
+      icon: "ion-nuclear"
+    },
+    {
+      label: "Rikos",
+      icon: "ion-speakerphone"
     }
   ];
+
+  function getIconForSource(source) {
+    for (var i=0 ; i<sourcelist.length ; i++) {
+      if (sourcelist[i].label == source) {
+        return sourcelist[i].icon;
+      }
+    }
+  };
 
   function getIconForType(type) {
     for (var i=0 ; i<typelist.length ; i++) {
@@ -117,6 +204,23 @@ angular.module('starter.services', [])
     // Return list of all types.
     getTypes: function() {
       return typelist;
+    },
+
+    // Return list of all types.
+    getSources: function() {
+      return sourcelist;
+    },
+
+    // Return events by type.
+    getBySource: function(source) {
+      var ret = [];
+      for (var i=0 ; i<events.length ; i++) {
+        if (events[i].source == source || !source) {
+          events[i].icon = getIconForSource(events[i].source);
+          ret.push(events[i]);  
+        }
+      }
+      return ret;
     },
 
     // Return events by type.
@@ -152,6 +256,7 @@ angular.module('starter.services', [])
       events.unshift({
         title: newEvt.title,
         description: newEvt.description,
+        source: newEvt.source,
         type: newEvt.evttype,
         icon: getIconForType(newEvt.evttype),
         lat: newEvt.lat,
