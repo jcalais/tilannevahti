@@ -129,12 +129,12 @@ angular.module('starter.services', [])
     {
       label: "Käyttäjä", 
       icon: "ion-person",
-      enabled: 1
+      enabled: 0
     },
     {
       label: "Pelastuslaitos", 
       icon: "ion-medkit",
-      enabled: 1
+      enabled: 0
     },
     {
       label: "Poliisi",
@@ -144,17 +144,17 @@ angular.module('starter.services', [])
     {
       label: "Sähkölaitos",
       icon: "ion-outlet",
-      enabled: 1
+      enabled: 0
     },
     {
       label: "Vesilaitos",
       icon: "ion-waterdrop",
-      enabled: 1
+      enabled: 0
     },
     {
       label: "Puolustusvoimat",
       icon: "ion-flash",
-      enabled: 1
+      enabled: 0
     },
     {
       label: "Säteilyturvakeskus",
