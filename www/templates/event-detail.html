@@ -10,7 +10,8 @@
     <span>Tilannevahti: Tapahtumatiedot</span>
   </ion-nav-title>
   <ion-content class="padding">
-    <h2><i class="icon {{evt.icon}}"></i> {{evt.title}}</h2>
+    <h2><i ng-if="evt.source != 'Käyttäjä'" class="icon {{evt.icon}}"></i> {{evt.source}}</h2>
+    <h2><i ng-if="evt.source == 'Käyttäjä'" class="icon {{evt.icon}}"></i> {{evt.title}}</h2>
     <time>{{evt.time | date:"d.M.y klo h:mm"}}</time>
     <p>
       {{evt.description}}

@@ -39,9 +39,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FeedCtrl', function($scope, Events) {
-  $scope.events = Events.getByType();
+  $scope.events = Events.getBySource();
   $scope.$on('$ionicView.beforeEnter', function() {
-    $scope.events = Events.getByType();
+    $scope.events = Events.getBySource();
   });
 })
 
