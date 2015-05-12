@@ -256,7 +256,7 @@ angular.module('starter.services', [])
       events.unshift({
         title: newEvt.title,
         description: newEvt.description,
-        source: newEvt.source,
+        source: "Käyttäjä",
         type: newEvt.evttype,
         icon: getIconForType(newEvt.evttype),
         lat: newEvt.lat,
